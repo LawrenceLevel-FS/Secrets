@@ -8,16 +8,14 @@ const fs = require("fs");
 let directory_name = "./";
 let filenames = fs.readdirSync(directory_name);
 
+const SECRET = "ABC_ITS_EASY_AS_123";
+
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/plain");
 
-  f = "";
-  filenames.forEach((file) => {
-    f += file + "\n";
-  });
-
-  res.end(f);
+  let fileList = filenames.join("\n") + `\nSECRET: ${SECRET}`;
+  res.end(fileList);
 });
 
 server.listen(port, hostname, () => {
