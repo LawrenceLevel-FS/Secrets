@@ -8,7 +8,7 @@ const fs = require("fs");
 let directory_name = "./";
 let filenames = fs.readdirSync(directory_name);
 
-const SECRET = "ABC_ITS_EASY_AS_123";
+const SECRET = process.env.SECRET;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
